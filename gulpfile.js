@@ -21,16 +21,15 @@ gulp.task('script', function(){
     .pipe(browserSync.reload({stream: true}));
 })
 
-gulp.task('js', function(){
-  return gulp.src([
-    'node_modules/slick-carousel/slick/slick.js',
-    'node_modules/magnific-popup/dist/jquery.magnific-popup.js'
-  ])
-    .pipe(concat('libs.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('app/js'))
-    .pipe(browserSync.reload({stream: true}))
-})
+// gulp.task('js', function(){
+//   return gulp.src([
+
+//   ])
+//     .pipe(concat('libs.min.js'))
+//     .pipe(uglify())
+//     .pipe(gulp.dest('app/js'))
+//     .pipe(browserSync.reload({stream: true}))
+// })
 
 gulp.task('server', function(){
   browserSync.init({
@@ -44,5 +43,5 @@ gulp.task('watch', function(){
   gulp.watch('app/js/*.js', gulp.parallel('script'))
 })
 
-gulp.task('default', gulp.parallel('scss', 'js', 'server', 'watch'))
+gulp.task('default', gulp.parallel('scss', 'server', 'watch'))
 
